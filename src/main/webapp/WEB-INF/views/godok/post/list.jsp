@@ -6,7 +6,7 @@
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
-<title>고독한 스레드 리스트</title>
+<title>고독한 포스트 리스트</title>
 </head>	
 <body>
 
@@ -15,8 +15,8 @@
 <table class="box">
 	<thead>
 	  <tr>
-	    <th scope="col">번호</th>
-	    <th scope="col">제목</th>
+	    <th scope="col">스레드 번호</th>
+	    <th scope="col">포스트 번호</th>
 	    <th scope="col">작성일</th>
 
 	  </tr>
@@ -33,21 +33,9 @@
 		  	<!--게시판 내용 반복문 시작  -->	
 		  	<c:forEach var="vo" items="${list}">
 	  			<tr  style="text-align:center">
-
+					<td>${vo.threadNo }</td>	
 					<td>${vo.no}</td>
-					<td style="text-align:left">
-						<a href
-					="<c:url value='/board/detail.do?no=${vo.no}'/>">
-							<!-- 제목이 긴 경우 일부만 보여주기 -->
-							<c:if test="${fn:length(vo.title)>30}">	
-								${fn:substring(vo.title, 0, 30)}...
-							</c:if>
-							<c:if test="${fn:length(vo.title)<=30}">
-								${vo.title}
-							</c:if>								
-						</a>
-					</td>
-
+					
 					<td><fmt:formatDate value="${vo.regdate}"
 						pattern="yyyy-MM-dd"/> </td>
 	
@@ -61,7 +49,7 @@
 </div>
 
 <div class="divBtn">
-    <a href='<c:url value="/godok/write.do"/>' >글쓰기</a>
+    <a href='<c:url value="/godok/post/write.do"/>' >글쓰기</a>
 </div>
 
 </body>
