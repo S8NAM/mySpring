@@ -25,7 +25,7 @@
 		<c:if test="${empty list }">
 			<tr>
 				<td colspan="6" style="text-align: center">
-					데이터가 존재하지 않습니다.
+					이 스레드에는 포스트가 존재하지 않습니다.
 				</td>
 			</tr>
 		</c:if>
@@ -49,7 +49,7 @@
 </div>
 
 <div class="divBtn">
-    <a href='<c:url value="/godok/post/write.do"/>' >글쓰기</a>
+    <a href="<c:url value='/godok/post/write.do?no=${param.no}'/>">글쓰기</a>
 </div>
 
 </body>

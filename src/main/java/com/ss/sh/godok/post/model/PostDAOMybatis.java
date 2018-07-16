@@ -12,8 +12,13 @@ public class PostDAOMybatis implements PostDAO{
 	@Autowired SqlSessionTemplate sqlSession;
 	
 	@Override
-	public List<PostVO> selectAll() {
-		return sqlSession.selectList(namespace+"selectAll");
+	public List<PostVO> selectAll(int no) {
+		return sqlSession.selectList(namespace+"selectAll", no);
 	}
-	
+
+	@Override
+	public int insertPost(PostVO postVo) {
+		return sqlSession.insert(namespace+"insertPost", postVo);
+	}
+
 }

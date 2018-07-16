@@ -8,8 +8,12 @@ import org.springframework.stereotype.Service;
 public class PostServiceImpl implements PostService{
 @Autowired PostDAO postDao;
 	@Override
-	public List<PostVO> selectAll() {
-		return postDao.selectAll();
+	public List<PostVO> selectAll(int no) {
+		return postDao.selectAll(no);
+	}
+	@Override
+	public int insertPost(PostVO postVo) {
+		return postDao.insertPost(postVo);
 	}
 
 }

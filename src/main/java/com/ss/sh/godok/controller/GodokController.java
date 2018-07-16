@@ -42,9 +42,4 @@ public class GodokController {
 		return "godok/list";
 	}
 	
-	@RequestMapping(value="/detail.do")
-	public String detail() {
-		logger.info("스레드 디테일!");
-		return "godok/detail";
-	}
 }

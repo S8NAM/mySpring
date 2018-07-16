@@ -25,7 +25,7 @@
 		<c:if test="${empty list }">
 			<tr>
 				<td colspan="6" style="text-align: center">
-					데이터가 존재하지 않습니다.
+					스레드가 존재하지 않습니다.
 				</td>
 			</tr>
 		</c:if>
@@ -37,7 +37,7 @@
 					<td>${vo.no}</td>
 					<td style="text-align:left">
 						<a href
-					="<c:url value='/board/detail.do?no=${vo.no}'/>">
+					="<c:url value='/godok/post/list.do?no=${vo.no}'/>">
 							<!-- 제목이 긴 경우 일부만 보여주기 -->
 							<c:if test="${fn:length(vo.title)>30}">	
 								${fn:substring(vo.title, 0, 30)}...

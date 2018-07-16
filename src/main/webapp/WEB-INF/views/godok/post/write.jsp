@@ -12,16 +12,19 @@
 	action="<c:url value='/godok/post/write.do'/>"
 	onsubmit="return send(this)">
 	<fieldset>
-		<legend>스레드 작성</legend>
-
+		<legend>스레드에 포스트 작성</legend>
+		<div>
+			<label for="threadNo">스레드 번호</label>
+			<input type="text" id="threadNo" name="threadNo" value="${param.no }">
+		</div>
 		<div>
 			<label for="pwd">비밀번호</label>
 			<input type="password" id="pwd" name="pwd"/>
 		</div>
 		<div>
 		<input type="submit" value="작성하기"/>
-		<input type="button" value="스레드  포스트 목록"
-		onclick="location.href='<c:url value="/godok/post/list.do"/>'"/>
+		<input type="button" value="스레드 목록"
+		onclick="location.href='<c:url value="/godok/post/list.do?no=${param.no }"/>'"/>
 		</div>
 	</fieldset>
 	</form>
