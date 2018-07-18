@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ss.sh.godok.model.GodokVO;
 import com.ss.sh.godok.post.model.PostService;
@@ -38,11 +39,11 @@ private static final Logger logger
 	}
 	
 	@RequestMapping(value="write.do", method=RequestMethod.POST)
-	public String postWrite_post(@ModelAttribute PostVO postVo) {
+	public String postWrite_post(@ModelAttribute PostVO postVo , @RequestParam int threadNo) {
 		int cnt=postService.insertPost(postVo);
 		logger.info("포스트 작성 완료!");
+		//redirectAttributes.addAttribute("no",threadNo); 이건 리다이렉트 할때 파라미터 전달하는것
 		
-		return"redirect:/godok/list.do";
-		//포스트 리스트 화면으로 redirect되게... 해야하는ㄷ ㅔ어케하지
+		return"redirect:/godok/post/list.do?no="+threadNo;
 	}
 }
