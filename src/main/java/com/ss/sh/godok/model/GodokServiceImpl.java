@@ -16,5 +16,9 @@ public class GodokServiceImpl implements GodokService {
 	public List<GodokVO> selectAll() {
 		return godokDao.selectAll();
 	}
+	@Override
+	public GodokVO selectThread(int no) {
+		return godokDao.selectThread(no);
+	}
 
 }

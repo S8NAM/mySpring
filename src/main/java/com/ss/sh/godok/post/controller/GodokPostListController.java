@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.ss.sh.godok.model.GodokService;
 import com.ss.sh.godok.model.GodokVO;
 import com.ss.sh.godok.post.model.PostService;
 import com.ss.sh.godok.post.model.PostVO;
@@ -23,12 +24,18 @@ public class GodokPostListController {
 private static final Logger logger
 =LoggerFactory.getLogger(GodokPostListController.class);
 @Autowired PostService postService;
-
+@Autowired GodokService godokService;
 	@RequestMapping(value="/list.do")
 	public String postList(Model model, @RequestParam int no) {
 		List<PostVO> list = postService.selectAll(no);
 		model.addAttribute("list", list);
 		logger.info("포스트 리스트! list.size()={}",list.size());
+		
+		
+		GodokVO godokVo = godokService.selectThread(no);
+		model.addAttribute("listVo", godokVo);
+		//list 정보도 여기에 받아왔당 이제 뷰페이지로 보내줄거임 listVo로 갖다쓸수있음
+		
 		return "godok/post/list";
 	}
 	
@@ -39,11 +46,12 @@ private static final Logger logger
 	}
 	
 	@RequestMapping(value="write.do", method=RequestMethod.POST)
-	public String postWrite_post(@ModelAttribute PostVO postVo , @RequestParam int threadNo) {
+	public String postWrite_post(@ModelAttribute PostVO postVo , 
+			@RequestParam int threadNo) {
 		int cnt=postService.insertPost(postVo);
-		logger.info("포스트 작성 완료!");
-		//redirectAttributes.addAttribute("no",threadNo); 이건 리다이렉트 할때 파라미터 전달하는것
-		
+		logger.info("포스트 작성 완료! title={}");
+	
+		//redirect시 parameter 전달할 수 있다!!
 		return"redirect:/godok/post/list.do?no="+threadNo;
 	}
 }

@@ -11,16 +11,24 @@
 <body>
 
 <div class="divList">
-
+<div>
+스레드 번호 : ${listVo.no }
+</div>
+<div>
+스레드 제목 : ${listVo.title }
+</div>
+<div>
+스레드 내용 : ${listVo.notice }
+</div>
 <table class="box">
 	<thead>
 	  <tr>
 	    <th scope="col">스레드 번호</th>
 	    <th scope="col">포스트 번호</th>
 	    <th scope="col">작성일</th>
-
+		<th></th>
 	  </tr>
-	</thead> 
+ 
 	<tbody>  
 		<c:if test="${empty list }">
 			<tr>
@@ -35,11 +43,11 @@
 	  			<tr  style="text-align:center">
 					<td>${vo.threadNo }</td>	
 					<td>${vo.no}</td>
-					
+	
 					<td><fmt:formatDate value="${vo.regdate}"
 						pattern="yyyy-MM-dd"/> </td>
 	
-				</tr>
+									</tr>
 			</c:forEach>
 		  	<!--반복처리 끝  -->
 	  	</c:if>
@@ -54,4 +62,3 @@
 
 </body>
 </html>
-

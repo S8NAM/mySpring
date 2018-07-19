@@ -28,7 +28,10 @@
 		 from GodokList
 		order by no desc
 	</select>
-
+	
+	<select id="selectThread" parameterType="int" resultType="GodokVO">
+	select * from GodokList where no=#{no}
+	</select>
 	<!-- 	
 
 	<select id="selectByNo" parameterType="int" resultType="BoardVO">

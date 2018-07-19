@@ -154,6 +154,7 @@
 			<version>12.1.0.1-atlassian-hosted</version>
 		</dependency>
 		
+		<!-- 트랜잭션 매니저 설정 가능 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>

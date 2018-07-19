@@ -22,6 +22,11 @@ public List<GodokVO> selectAll() {
 	return sqlSession.selectList(namespace+"selectAll");
 }
 
+@Override
+public GodokVO selectThread(int no) {
+	return sqlSession.selectOne(namespace+"selectThread", no);
+}
+
 
 
 }
