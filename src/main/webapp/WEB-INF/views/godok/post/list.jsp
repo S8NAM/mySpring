@@ -7,23 +7,33 @@
 <html lang="ko">
 <head>
 <title>고독한 포스트 리스트</title>
+<style type="text/css">
+	#no{color:blue;
+		font-size: 15px;
+		
+	}
+	#title{
+	font-size:30px;
+	}
+	#thread td{
+	padding:10px;}
+</style>
 </head>	
 <body>
 
 <div class="divList">
-<div>
-스레드 번호 : ${listVo.no }
-</div>
-<div>
-스레드 제목 : ${listVo.title }
-</div>
-<div>
-스레드 내용 : ${listVo.notice }
-</div>
+<table id="thread">
+	<tr>
+		<td id="no">#${listVo.no }</td>
+		<td id="title">${listVo.title }</td>
+	</tr>
+	<tr colspan=2>
+		<td>${listVo.notice }</td>
+	</tr>
+</table>
 <table class="box">
 	<thead>
 	  <tr>
-	    <th scope="col">스레드 번호</th>
 	    <th scope="col">포스트 번호</th>
 	    <th scope="col">작성일</th>
 		<th></th>
@@ -41,7 +51,7 @@
 		  	<!--게시판 내용 반복문 시작  -->	
 		  	<c:forEach var="vo" items="${list}">
 	  			<tr  style="text-align:center">
-					<td>${vo.threadNo }</td>	
+	
 					<td>${vo.no}</td>
 	
 					<td><fmt:formatDate value="${vo.regdate}"
