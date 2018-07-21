@@ -21,4 +21,9 @@ public class PostDAOMybatis implements PostDAO{
 		return sqlSession.insert(namespace+"insertPost", postVo);
 	}
 
+	@Override
+	public int updatePostNo(PostVO postVo) {
+		return sqlSession.update(namespace+"updatePostNo", postVo);
+	}
+
 }

@@ -5,6 +5,15 @@ import java.sql.Timestamp;
 public class PostVO {
 	private int no         ;    
 	private int threadNo    ;
+	private int postNo;
+	
+	public int getPostNo() {
+		return postNo;
+	}
+
+	public void setPostNo(int postNo) {
+		this.postNo = postNo;
+	}
 
 	private  String pwd        ; 
 	private Timestamp regdate ;

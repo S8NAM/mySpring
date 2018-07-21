@@ -52,7 +52,7 @@
 		  	<c:forEach var="vo" items="${list}">
 	  			<tr  style="text-align:center">
 	
-					<td>${vo.no}</td>
+					<td>${vo.postNo}</td>
 	
 					<td><fmt:formatDate value="${vo.regdate}"
 						pattern="yyyy-MM-dd"/> </td>

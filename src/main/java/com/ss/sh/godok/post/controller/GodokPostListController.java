@@ -49,7 +49,9 @@ private static final Logger logger
 	public String postWrite_post(@ModelAttribute PostVO postVo , 
 			@RequestParam int threadNo) {
 		int cnt=postService.insertPost(postVo);
-		logger.info("포스트 작성 완료! title={}");
+		logger.info("포스트 작성 완료! cnt={}");
+		/*cnt=postService.updatePostNo(postVo);
+		logger.info("포스트 번호 업데이트! cnt={}");*/
 	
 		//redirect시 parameter 전달할 수 있다!!
 		return"redirect:/godok/post/list.do?no="+threadNo;
