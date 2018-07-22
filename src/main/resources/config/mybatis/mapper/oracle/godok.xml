@@ -22,7 +22,7 @@
 	</sql>
 	
 
-	<select id="selectAll" parameterType="map" resultType="GodokVO">
+	<select id="selectAll" resultType="GodokVO">
 		select *
 <!-- 		<include refid=godokCol"></include>		 -->
 		 from GodokList

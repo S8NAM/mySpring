@@ -38,7 +38,7 @@ public class GodokController {
 	public String list(Model model) {
 		List<GodokVO> list = godokService.selectAll();
 		model.addAttribute("list", list);
-		logger.info("스레드 리스트!");
+		logger.info("스레드 리스트! list.size={}",list.size());
 		return "godok/list";
 	}
 	

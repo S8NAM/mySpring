@@ -24,7 +24,7 @@
 <div class="divList">
 <table id="thread">
 	<tr>
-		<td id="no">#${listVo.no }</td>
+		<td id="no">${listVo.no }</td>
 		<td id="title">${listVo.title }</td>
 	</tr>
 	<tr colspan=2>
