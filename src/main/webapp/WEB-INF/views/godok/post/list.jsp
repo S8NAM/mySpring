@@ -2,7 +2,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
+<%
+pageContext.setAttribute("br", "<br/>");
+pageContext.setAttribute("cn", "\n");
+%>
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
@@ -16,7 +19,10 @@
 	font-size:30px;
 	}
 	#thread td{
-	padding:10px;}
+	padding:10px;
+	}
+	table {
+	border:1px solid black;}
 </style>
 </head>	
 <body>
@@ -24,11 +30,11 @@
 <div class="divList">
 <table id="thread">
 	<tr>
-		<td id="no">${listVo.no }</td>
-		<td id="title">${listVo.title }</td>
+		<th id="no">${listVo.no }</th>
+		<th id="title">${listVo.title }</th>
 	</tr>
-	<tr colspan=2>
-		<td>${listVo.notice }</td>
+	<tr>
+		<td colspan=2>${fn:replace(listVo.notice,cn,br) }</td>
 	</tr>
 </table>
 <table class="box">
@@ -52,7 +58,7 @@
 		  	<c:forEach var="vo" items="${list}">
 	  			<tr  style="text-align:center">
 	
-					<td>${vo.postNo}</td>
+					<td>${vo.rownum}</td>
 	
 					<td><fmt:formatDate value="${vo.regdate}"
 						pattern="yyyy-MM-dd"/> </td>

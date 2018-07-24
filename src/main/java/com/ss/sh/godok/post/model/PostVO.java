@@ -6,15 +6,8 @@ public class PostVO {
 	private int no         ;    
 	private int threadNo    ;
 	private int postNo;
+	private int rownum;
 	
-	public int getPostNo() {
-		return postNo;
-	}
-
-	public void setPostNo(int postNo) {
-		this.postNo = postNo;
-	}
-
 	private  String pwd        ; 
 	private Timestamp regdate ;
 	private  String fileName	;
@@ -85,6 +78,21 @@ public class PostVO {
 
 	public void setDelFlag(String delFlag) {
 		this.delFlag = delFlag;
+	}
+	public int getPostNo() {
+		return postNo;
+	}
+
+	public void setPostNo(int postNo) {
+		this.postNo = postNo;
+	}
+
+	public int getRownum() {
+		return rownum;
+	}
+
+	public void setRownum(int rownum) {
+		this.rownum = rownum;
 	}
 
 	@Override

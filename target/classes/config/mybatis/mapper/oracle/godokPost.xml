@@ -4,24 +4,22 @@
 <mapper namespace="com.sql.godokPost">
 
 	<select id="selectAll" parameterType="int" resultType="PostVO">
-		select * from godokPost where threadNo=#{no}
-		order by postno asc
+		<!-- select * from godokPost where threadNo=#{no}
+		order by postno asc -->
+		select no, threadno, pwd, regdate, filename, filesize, originalfilename, rownum 
+		from godokPost
+		where threadNo=#{no} 
+		order by rownum
 	</select>
 	
 	<insert id="insertPost" parameterType="PostVO">
 		<selectKey keyProperty="no" order="BEFORE" resultType="int">
 			select godokPost_seq.nextval from dual
 		</selectKey>
-		insert into godokPost (no, threadNo, pwd, postno )
-		values(#{no}, #{threadNo}, #{pwd}, 
-			(select #{postNo}+1
-			from godokPost
-			Where threadNo = #{threadNo} and postno = #{postNo}))
+		insert into godokPost (no, threadNo, pwd)
+		values(#{no}, #{threadNo}, #{pwd})
 	</insert>
-	<!-- insert 서브쿼리 
-	insert 하는 postno는 
-	1.기존에 입력된 같은 스레드의 postno에 비해
-	2. 1의 최대값보다 1이 커야한다. -->
+
 
 
 </mapper>
