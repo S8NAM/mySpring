@@ -6,7 +6,7 @@
 	<select id="selectAll" parameterType="int" resultType="PostVO">
 		<!-- select * from godokPost where threadNo=#{no}
 		order by postno asc -->
-		select no, threadno, pwd, regdate, filename, filesize, originalfilename, rownum 
+		select no, threadno, pwd, regdate, filename, filesize, originalfilename, rownum
 		from godokPost
 		where threadNo=#{no} 
 		order by rownum
